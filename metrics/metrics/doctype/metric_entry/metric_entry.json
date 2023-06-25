@@ -7,11 +7,29 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "group",
   "metric",
-  "entry_date",
+  "tick",
+  "column_break_dbqqw",
+  "notes",
+  "reading_section",
   "actual",
+  "column_break_k6yyp",
   "target",
-  "notes"
+  "time_dimensions_section",
+  "year",
+  "year_month",
+  "month",
+  "month_name",
+  "day",
+  "doi",
+  "column_break_vslsv",
+  "weekday",
+  "weekday_name",
+  "hour",
+  "minute",
+  "second",
+  "microseconds"
  ],
  "fields": [
   {
@@ -21,11 +39,6 @@
    "label": "Metric",
    "options": "Metric",
    "reqd": 1
-  },
-  {
-   "fieldname": "entry_date",
-   "fieldtype": "Datetime",
-   "label": "Entry Date"
   },
   {
    "fieldname": "actual",
@@ -44,11 +57,128 @@
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
+  },
+  {
+   "fieldname": "group",
+   "fieldtype": "Link",
+   "label": "Group",
+   "options": "Metric Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tick",
+   "fieldtype": "Int",
+   "label": "Tick",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Time Dimensions"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year",
+   "length": 4,
+   "read_only": 1
+  },
+  {
+   "fieldname": "year_month",
+   "fieldtype": "Data",
+   "label": "Year-Month",
+   "length": 7,
+   "read_only": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "label": "Month",
+   "length": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "month_name",
+   "fieldtype": "Select",
+   "label": "Month Name",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "read_only": 1
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Data",
+   "label": "Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doi",
+   "fieldtype": "Data",
+   "label": "Day of the Year",
+   "length": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vslsv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weekday",
+   "fieldtype": "Data",
+   "label": "Weekday",
+   "length": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "weekday_name",
+   "fieldtype": "Data",
+   "label": "Weekday Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hour",
+   "fieldtype": "Data",
+   "label": "Hour",
+   "length": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "minute",
+   "fieldtype": "Data",
+   "label": "Minute",
+   "read_only": 1
+  },
+  {
+   "fieldname": "second",
+   "fieldtype": "Data",
+   "label": "Second",
+   "length": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "microseconds",
+   "fieldtype": "Data",
+   "label": "Microseconds",
+   "length": 7,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dbqqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reading_section",
+   "fieldtype": "Section Break",
+   "label": "Reading"
+  },
+  {
+   "fieldname": "column_break_k6yyp",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-21 15:46:19.757965",
+ "modified": "2023-06-24 15:57:10.839951",
  "modified_by": "Administrator",
  "module": "Metrics",
  "name": "Metric Entry",

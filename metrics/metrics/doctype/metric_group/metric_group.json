@@ -66,7 +66,7 @@
  "modified": "2023-06-21 15:20:40.183223",
  "modified_by": "Administrator",
  "module": "Metrics",
- "name": "Group",
+ "name": "Metric Group",
  "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_group",
  "owner": "Administrator",

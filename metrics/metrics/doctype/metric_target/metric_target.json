@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-24 15:32:24.308234",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "group",
+  "metric",
+  "dimension",
+  "target",
+  "frequency",
+  "step"
+ ],
+ "fields": [
+  {
+   "fieldname": "group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Group",
+   "options": "Metric Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Metric",
+   "options": "Metric",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.frequency && doc.frequency != \"Time\"",
+   "description": "eg: every 10 minutes",
+   "fieldname": "step",
+   "fieldtype": "Int",
+   "label": "Step"
+  },
+  {
+   "default": "Time",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Every",
+   "options": "\nTime\nSecond\nMinute\nHour\nDay\nWeek\nMonth\nYear"
+  },
+  {
+   "fieldname": "dimension",
+   "fieldtype": "Link",
+   "label": "Dimension",
+   "options": "Metric Dimension",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-06-24 15:44:30.946836",
+ "modified_by": "Administrator",
+ "module": "Metrics",
+ "name": "Metric Target",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:metric",
+ "autoname": "field:variable_name",
  "creation": "2023-06-21 15:34:48.870950",
  "default_view": "List",
  "doctype": "DocType",
@@ -9,16 +9,24 @@
  "engine": "InnoDB",
  "field_order": [
   "category",
+  "metric",
+  "variable_name",
   "unit",
   "frequency",
-  "metric",
-  "description",
+  "step",
   "column_break_6",
+  "description",
+  "active",
   "target",
   "direction",
+  "data_aggregation_section",
+  "calculated",
+  "column_break_5ali6",
   "aggregate_function",
-  "active",
-  "calculated"
+  "formula",
+  "dataset_and_visualization_section",
+  "chart_type",
+  "dataset_getter"
  ],
  "fields": [
   {
@@ -38,15 +46,17 @@
    "reqd": 1
   },
   {
+   "default": "Time",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "label": "Every",
-   "options": "\nTime\nSecond\nMinute\nHour\nDay\nWeek\nMonth\nTwo Months\nQuarter\nSemester\nYear"
+   "options": "\nTime\nSecond\nMinute\nHour\nDay\nWeek\nMonth\nYear"
   },
   {
    "fieldname": "metric",
    "fieldtype": "Data",
    "label": "Metric Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -70,6 +80,7 @@
    "options": "\nUp\nDown\nNone"
   },
   {
+   "depends_on": "eval:!doc.calculated",
    "fieldname": "aggregate_function",
    "fieldtype": "Select",
    "label": "Aggregate Function",
@@ -86,11 +97,62 @@
    "fieldname": "calculated",
    "fieldtype": "Check",
    "label": "Calculated"
+  },
+  {
+   "depends_on": "eval:doc.calculated",
+   "fieldname": "formula",
+   "fieldtype": "Code",
+   "label": "Formula",
+   "options": "Python"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.frequency && doc.frequency != \"Time\"",
+   "description": "eg: every 10 minutes",
+   "fieldname": "step",
+   "fieldtype": "Int",
+   "label": "Step",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "variable_name",
+   "fieldtype": "Data",
+   "label": "Variable Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "data_aggregation_section",
+   "fieldtype": "Section Break",
+   "label": "Data Aggregation"
+  },
+  {
+   "fieldname": "column_break_5ali6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dataset_getter",
+   "fieldtype": "Link",
+   "label": "Dataset Getter",
+   "options": "Server Script",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dataset_and_visualization_section",
+   "fieldtype": "Section Break",
+   "label": "Dataset and Visualization"
+  },
+  {
+   "fieldname": "chart_type",
+   "fieldtype": "Select",
+   "label": "Chart Type",
+   "options": "\nLine\nBar\nPercentage\nPie\nDonut\nHeatmap"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-21 15:36:08.636915",
+ "modified": "2023-06-24 15:43:49.475969",
  "modified_by": "Administrator",
  "module": "Metrics",
  "name": "Metric",

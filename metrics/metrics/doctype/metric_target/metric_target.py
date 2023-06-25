@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 # import frappe
-from frappe.utils.nestedset import NestedSet
+from frappe.model.document import Document
 
-class Group(NestedSet):
+class MetricTarget(Document):
 	pass

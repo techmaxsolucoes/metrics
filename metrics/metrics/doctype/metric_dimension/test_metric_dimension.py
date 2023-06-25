@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestGroup(FrappeTestCase):
+class TestMetricDimension(FrappeTestCase):
 	pass
